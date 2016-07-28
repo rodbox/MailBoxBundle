@@ -1,0 +1,7 @@
+{% if mail.textHtml is defined %}
+	{{ mail.textHtml | raw }}
+{% else %}
+	<pre>
+		{{ mail.textPlain }}
+	</pre>
+{% endif %}

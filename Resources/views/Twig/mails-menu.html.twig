@@ -1,0 +1,8 @@
+<a href="{{ path('mail_new') }}" class="btn btn-sm btn-default btn-modal"><i class="fa fa-plus"></i> {{ "action.new" | trans }}</a>
+<a href="{{ path('mail_refresh') }}" class="btn-target btn btn-sm c-3 pull-right" data-target="#mail-list"><i class="fa fa-refresh"></i></a> <span class="label label-default pull-right" style="margin-top:6px;">{{ unseen }} / {{ mails | length }}</span>
+<form action="#" class="p-c-v">
+	<div class="input-group">  
+		<div class="input-group-addon"><button style="background-color: transparent; border-color: transparent; border-width: 0;" class="" data-loading-text="&lt;i class='fa fa-refresh fa-spin'&gt;&lt;/i&gt;" type="submit"  placeholder="{{ "action.search" | trans }}" ><i class="fa fa-search"></i></button></div>
+		<input type="text" class="form-control input-search" data-target="#mail-list" data-items="a.list-group-item">
+	</div>
+</form>

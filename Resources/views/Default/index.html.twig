@@ -1,0 +1,29 @@
+{% extends 'RBAdminBundle::index.html.twig' %}
+
+{% block title %}{% endblock title %}
+
+{% block subTitle %}{% endblock subTitle %}
+
+{% block breadcrumb %}{% endblock breadcrumb %}
+
+{% block body %}
+<div class="col-md-4 ">
+
+	{{ pagin_me(mails, {
+		per     : 5,
+		cur     : 1,
+		filters : ['subject','from'],
+		view    : 'RBMailBoxBundle:Items:mail-item.html.twig'
+		})
+	}}
+
+</div>
+
+<div class="col-md-8  ">
+	<div id="mail-container">
+		{% include 'RBMailBoxBundle:Items:mail.html.twig' with { mail : mail, id : id } only %}
+	</div>
+</div>
+
+{{ local_me('mail_check', 'mails', { type : 'headers' }) }}
+{% endblock body %}

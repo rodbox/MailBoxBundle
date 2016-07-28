@@ -1,0 +1,23 @@
+
+<div class="p-c-b">
+	{{ btn_mail(id) }}
+</div>
+<div class="alert bg-faded">
+	<h2>{{ mail.fromName }} <span class="pull-right text-muted">{{ mail.date | date('D d M y H:i') }}</span></h2>
+	<h1><strong>{{ mail.subject }}</strong></h1>
+	<form action="#" class="form-reply-speed hide form-live" data-cb="mailSendSpeed" data-cb-app="mail">
+		<input type="hidden" name="subject" value="RE:{{ mail.subject }}">
+		
+		{% for key, reply in mail.replyTo %}
+			<input type="hidden" name="reply[]" value="{{key}}">
+		{% endfor %}
+		
+		<textarea name="msg" id="msg_reply" class="form-control" data-tab="true" rows="5"></textarea>
+		<div id="files-attach-{{id}}" class="files-attach files-attach-{{id}}"></div>
+		<div class="form-footer">
+			{{ btn_upload_mail() }} <button class="btn btn-success " style="margin-left:0.3rem;">{{ "action.submit" | trans }}</button>
+		</div>
+		
+	</form>
+</div>
+<iframe id="iframe-mail" src="{{ path('mail_html',{id:id}) }}" frameborder="0"></iframe>

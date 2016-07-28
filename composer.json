@@ -1,0 +1,32 @@
+{
+    "name": "rodbox\/rodboxmail",
+    "version": "0.1",
+    "description": "mail pour RB en version Alpha",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "keywords": [
+        "rodbox",
+        "mail",
+        "symfony"
+    ],
+    "homepage": "https:\/\/github.com\/rodbox\/mailbundle",
+    "require": {
+        "symfony\/symfony": "3.*",
+        "rodbox\/rodboxcore": "@dev",
+        "rodbox\/rodboxadmin": "@dev",
+        "rodbox\/rodboxuser": "@dev",
+        "php-imap\/php-imap": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "Jacquemin Rodolphe",
+            "email": "jacquemin.rodolphe@hotmail.fr"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RB\\mailBundle\\": ""
+        }
+    },
+    "minimum-stability": "dev"
+}

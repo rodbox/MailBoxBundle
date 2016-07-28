@@ -1,0 +1,11 @@
+<div class="p-c-v">
+	{{ btn_mail(id) }}
+</div>
+<div class="alert bg-faded">
+	<h1><strong>{{ mail.subject }}</strong></h1>
+	<h2>{{ mail.fromName }} <span class="pull-right text-muted">{{ mail.date | date('D d M y H:i') }}</span>	</h2>
+	
+</div>
+<div class="alert">
+	<pre>{{ mail.textPlain }}</pre>
+</div>

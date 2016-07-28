@@ -1,0 +1,8 @@
+<div id="mail-list" class="list-group">
+	{% for key, item in mails %}
+		<a href="{{path('mail_show',{id:key}) }}" class="list-group-item btn-live-target mail-" data-text-loading="toto"  data-seen="{{ item.seen }}" data-flag="{{ item.flagged }}" data-answered="{{ item.answered }}" data-target="#mail-container">
+			<div class="text-muted">{{ item.udate | date('d M Y h:i') }}</div>
+			<span class="subject">{{ item.subject }}</span>
+		</a>
+	{% endfor %}
+</div>

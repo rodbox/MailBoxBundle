@@ -1,0 +1,11 @@
+<form action="{{path('mail_send') }}" class="form-live" data-cb="mail" data-cb-app="mailSend">
+	<label for="subject">{{ "label.subject" | trans }}</label>
+	<input type="text" class="form-control" name="subject">
+	<label for="to">{{ "label.to" | trans }}</label>
+	{{ contact_input() }}
+	<label for="content">{{ "label.msg" | trans }}</label>
+	<textarea name="msg" rows="10" class="form-control" data-tab="true"></textarea>
+	<div class="form-footer">
+		<button class="btn btn-success">{{ "action.send" | trans }}</button>
+	</div>
+</form>

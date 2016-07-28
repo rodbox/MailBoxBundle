@@ -1,0 +1,5 @@
+<a href="/inbox/show/{{ item.key | default('0') }}" class="list-group-item btn-live-target mail-" data-text-loading="toto"  data-seen="{{ item.seen }}" data-flag="{{ item.flagged }}" data-answered="{{ item.answered }}" data-target="#mail-container">
+	<div class="text-muted">{{ item.udate | maildate }}</div>
+	<span class="from"><strong>{{ item.from | mailsender}}</strong></span>
+	<div class="subject">{{ item.subject }}</div>
+</a>

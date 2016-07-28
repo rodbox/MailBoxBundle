@@ -1,0 +1,12 @@
+<div class="btn-group btn-group-sm">
+	<a href="#" class="btn btn-default btn-toggle" data-target=".form-reply-speed"><i class="fa fa-reply"></i></a>
+	<a href="{{ path('mail_flag', {id : id}) }}" class="btn btn-default btn-live"><i class="fa fa-star"></i></a>
+	<a href="{{ path('mail_print', {id : id}) }}" class="btn btn-default"><i class="fa fa-print"></i></a>
+</div>
+<div class="btn-group btn-group-sm pull-right">
+	<a href="#" class="btn btn-default btn-nav" data-target="#mail-list" data-sens="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+	<a href="#" class="btn btn-default btn-nav" data-target="#mail-list" data-sens="next"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+</div>
+<div class="btn-group btn-group-sm">
+	<a href="{{ path('mail_del', {id : id}) }}" class="btn btn-default"><i class="fa fa-trash-o"></i></a>
+</div>

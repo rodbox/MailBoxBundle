@@ -1,0 +1,10 @@
+services:
+    rb.mailbox:
+        class: RB\MailBoxBundle\Services\RBMailBoxService
+        arguments: ["@service_container"]
+
+    rb.mailboxextension:
+        class: RB\MailBoxBundle\Twig\RBMailBoxExtension
+        arguments: ["@service_container","@twig","@router"]
+        tags:
+            - { name: twig.extension }
