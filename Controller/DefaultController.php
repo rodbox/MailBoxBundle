@@ -30,11 +30,14 @@ class DefaultController extends Controller
         $mailbox = $this->get('rb.mailbox');
         // $mailbox->mailsIDList();
 
-        $id = 0;
+        $idList = $mailbox->mailsIDList();
+
+        $id = end($idList);
 
         return $this->render('RBMailBoxBundle:Default:index.html.twig',[
             'unseen' => $mailbox->countUnseen(),
-            'mails'  => $mailbox->headers(),
+            'mailsIDList'  => $idList,
+            'mails'  => array_reverse($mailbox->headers()),
             'mail'   => $mailbox->get($id),
             'id'     => $id
             ]
@@ -44,7 +47,7 @@ class DefaultController extends Controller
 
 
     /**
-    * @Route("show/{id}",name="mail_show")
+    * @Route("/show/{id}",name="mail_show")
     */
     public function showAction(Request $request, $id, $type = 'Html')
     {
@@ -58,7 +61,7 @@ class DefaultController extends Controller
 
 
     /**
-    * @Route("html/{id}",name="mail_html")
+    * @Route("/html/{id}",name="mail_html")
     */
     public function htmlAction(Request $request, $id, $type = 'Html')
     {

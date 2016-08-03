@@ -35,6 +35,7 @@ class RBMailBoxService {
     }
 
 
+
    /**
     * voir les recherches disponibles :
     * http://php.net/manual/en/function.imap-search.php
@@ -51,28 +52,51 @@ class RBMailBoxService {
 
 
 
-    public function headers()
+    public function headers($search = 'ALL')
     {
+        $this->mailsIDList($search);
     	return $this->mailsHeader = $this->mailbox->getMailsInfo($this->mailsID);
     }
 
 
 
-	public function get($id = 0)
+	public function get($id = 1)
     {
     	$this->mailsIDList('ALL');
-		return $this->mail =  $this->mailbox->getMail($this->mailsID[$id]);
+		return $this->mail =  $this->mailbox->getMail($id);
     }
+
 
 
     public function countUnseen()
     {
-    	$this->mailsIDUnseen = $this->mailbox->searchMailbox('UNSEEN');
+        $this->count['unseen'] = $this->countMails('UNSEEN');
+
+        /* SERVICE : rb.counter */
+        $this->container->get('rb.counter')->setCounter('unseen',$this->count['unseen']);
+        /* END SERVICE :  rb.counter */
+
+        return $this->count['unseen'];
+    }
+
+
+
+    public function countAll()
+    {
+        return $this->count['all'] = $this->countMails('ALL');
+    }
+
+
+
+    public function countMails($search = 'ALL')
+    {
+    	$this->mailsIDUnseen = $this->mailbox->searchMailbox($search);
 
     	if(!$this->mailsIDUnseen)
 		    $this->mailsIDUnseen = [];
 
-    	return $this->unseen = count($this->mailsIDUnseen);
+    	return count($this->mailsIDUnseen);
+        # code...
     }
 }
 

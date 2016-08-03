@@ -1,7 +1,9 @@
 {% if mail.textHtml is defined %}
 	{{ mail.textHtml | raw }}
 {% else %}
+<div class="alert bg-5 p-c m-c-b">
 	<pre>
 		{{ mail.textPlain }}
 	</pre>
+</div>
 {% endif %}

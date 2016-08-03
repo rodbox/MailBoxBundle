@@ -1,4 +1,10 @@
-<a href="/inbox/show/{{ item.key | default('0') }}" class="list-group-item btn-live-target mail-" data-text-loading="toto"  data-seen="{{ item.seen }}" data-flag="{{ item.flagged }}" data-answered="{{ item.answered }}" data-target="#mail-container">
+<a href="/mailbox/inbox/show/{{ item.uid | default('0') }}" class="flat-list btn-live-target mail-{{ item.uid | default('0') }}" data-text-loading="toto"  data-seen="{{ item.seen }}" data-flag="{{ item.flagged }}" data-answered="{{ item.answered }}" data-target="#mail-container" style="padding-left:2rem;">
+<ul class="meta" style="position:absolute; left:0.4rem; list-style:none !important; margin:0px; padding-left: 0.6rem;">
+	<li class="mail-seen mail-seen-{{ item.seen }}"><i class="fa fa-envelope "></i></li>
+	<li class="mail-flagged mail-flagged-{{ item.flagged }}"><i class="fa fa-star"></i></li>
+	<li class="mail-answered mail-answered-{{ item.answered }}"><i class="fa fa-reply" aria-hidden="true"></i></li>
+</ul>
+
 	<div class="text-muted">{{ item.udate | maildate }}</div>
 	<span class="from"><strong>{{ item.from | mailsender}}</strong></span>
 	<div class="subject">{{ item.subject }}</div>
