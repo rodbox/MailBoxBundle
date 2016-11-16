@@ -28,7 +28,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $mailbox = $this->get('rb.mailbox');
-        // $mailbox->mailsIDList();
+        $mailbox->mailsIDList();
 
         $idList = $mailbox->mailsIDList();
 
